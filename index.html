@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#080b12">
+<title>ROOT HUB</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+font-family:Arial,sans-serif;
+background:#080b12;
+color:#f5f7fb;
+min-height:100vh
+}
+
+button,input{
+font:inherit
+}
+
+button{
+cursor:pointer
+}
+
+.app{
+display:flex;
+min-height:100vh
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+position:fixed;
+top:0;
+bottom:0;
+left:0;
+background:#0d111a;
+border-right:1px solid #202634;
+padding:25px 15px;
+z-index:10
+}
+
+.logo{
+font-size:22px;
+font-weight:800;
+letter-spacing:1px;
+margin-bottom:30px
+}
+
+.logo span{
+color:#62e6a7
+}
+
+.nav{
+display:flex;
+flex-direction:column;
+gap:7px
+}
+
+.nav button{
+border:0;
+background:transparent;
+color:#9ba5b7;
+padding:13px;
+border-radius:10px;
+text-align:left
+}
+
+.nav button:hover,
+.nav button.active{
+background:#171d29;
+color:white
+}
+
+/* MAIN */
+
+.main{
+margin-left:240px;
+width:calc(100% - 240px);
+padding:25px
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px
+}
+
+.title h1{
+font-size:30px
+}
+
+.title p{
+color:#8d97a8;
+margin-top:6px
+}
+
+.online{
+color:#62e6a7;
+border:1px solid #263443;
+padding:8px 12px;
+border-radius:20px;
+font-size:12px
+}
+
+/* SEARCH */
+
+.search{
+margin-bottom:25px
+}
+
+.search input{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:1px solid #252f3f;
+background:#101620;
+color:white;
+outline:none
+}
+
+.search input:focus{
+border-color:#62e6a7
+}
+
+/* SECTIONS */
+
+.section-title{
+font-size:18px;
+margin-bottom:15px
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px
+}
+
+.card{
+background:#101620;
+border:1px solid #202938;
+border-radius:16px;
+padding:20px;
+transition:.2s
+}
+
+.card:hover{
+transform:translateY(-3px);
+border-color:#3b4659
+}
+
+.icon{
+width:45px;
+height:45px;
+display:grid;
+place-items:center;
+background:#171e2b;
+border-radius:12px;
+font-size:21px;
+margin-bottom:15px
+}
+
+.card h3{
+font-size:16px;
+margin-bottom:7px
+}
+
+.card p{
+color:#8993a5;
+font-size:13px;
+line-height:1.5;
+min-height:40px
+}
+
+.card button{
+width:100%;
+margin-top:15px;
+padding:10px;
+border:0;
+border-radius:9px;
+background:#1b2432;
+color:white
+}
+
+.card button:hover{
+background:#293548
+}
+
+/* CONTENT PANELS */
+
+.page{
+display:none
+}
+
+.page.active{
+display:block
+}
+
+.panel{
+margin-top:20px;
+background:#101620;
+border:1px solid #202938;
+border-radius:16px;
+padding:20px
+}
+
+.panel h2{
+margin-bottom:8px
+}
+
+.panel p{
+color:#929cad;
+line-height:1.5;
+margin-bottom:15px
+}
+
+.action{
+background:#62e6a7;
+color:#07100c;
+border:0;
+border-radius:9px;
+padding:11px 16px;
+font-weight:bold
+}
+
+.result{
+margin-top:15px;
+background:#080b12;
+border:1px solid #202938;
+border-radius:10px;
+padding:15px;
+white-space:pre-wrap;
+word-break:break-word;
+line-height:1.6
+}
+
+.text{
+width:100%;
+background:#080b12;
+border:1px solid #293344;
+color:white;
+padding:12px;
+border-radius:9px;
+margin-bottom:12px;
+outline:none
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+}
+
+@media(max-width:700px){
+
+.sidebar{
+top:auto;
+height:65px;
+width:100%;
+padding:7px;
+border-right:0;
+border-top:1px solid #202634
+}
+
+.logo{
+display:none
+}
+
+.nav{
+flex-direction:row;
+justify-content:space-around
+}
+
+.nav button{
+font-size:11px;
+padding:9px
+}
+
+.main{
+margin-left:0;
+width:100%;
+padding:18px;
+padding-bottom:90px
+}
+
+.top{
+align-items:flex-start
+}
+
+.title h1{
+font-size:24px
+}
+
+.online{
+font-size:10px
+}
+
+.grid{
+grid-template-columns:1fr
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- NAVIGATION -->
+
+<aside class="sidebar">
+
+<div class="logo">
+ROOT <span>HUB</span>
+</div>
+
+<nav class="nav">
+
+<button class="active" onclick="page('home',this)">
+🏠 Home
+</button>
+
+<button onclick="page('social',this)">
+📱 Social
+</button>
+
+<button onclick="page('network',this)">
+🌐 Network
+</button>
+
+<button onclick="page('security',this)">
+🔐 Security
+</button>
+
+<button onclick="page('device',this)">
+📱 Device
+</button>
+
+</nav>
+
+</aside>
+
+
+<!-- MAIN -->
+
+<main class="main">
+
+<header class="top">
+
+<div class="title">
+
+<h1>ROOT HUB</h1>
+
+<p>All-in-one personal web toolkit.</p>
+
+</div>
+
+<div class="online">
+● ONLINE
+</div>
+
+</header>
+
+
+<div class="search">
+
+<input
+id="search"
+placeholder="Search tools..."
+oninput="searchTools()">
+
+</div>
+
+
+<!-- HOME -->
+
+<section id="home" class="page active">
+
+<h2 class="section-title">
+Tools
+</h2>
+
+<div class="grid" id="tools">
+
+
+<div class="card" data-name="instagram social">
+
+<div class="icon">📸</div>
+
+<h3>Instagram</h3>
+
+<p>
+Open Instagram and access tools for your own account.
+</p>
+
+<button onclick="openInstagram()">
+Open
+</button>
+
+</div>
+
+
+<div class="card" data-name="whatsapp social">
+
+<div class="icon">💬</div>
+
+<h3>WhatsApp</h3>
+
+<p>
+Open a WhatsApp chat using a number you provide.
+</p>
+
+<button onclick="whatsapp()">
+Open
+</button>
+
+</div>
+
+
+<div class="card" data-name="network internet">
+
+<div class="icon">🌐</div>
+
+<h3>Network Info</h3>
+
+<p>
+View network information available to your browser.
+</p>
+
+<button onclick="page('network')">
+Open
+</button>
+
+</div>
+
+
+<div class="card" data-name="location gps">
+
+<div class="icon">📍</div>
+
+<h3>My Location</h3>
+
+<p>
+Request your own GPS location with browser permission.
+</p>
+
+<button onclick="locationTool()">
+Open
+</button>
+
+</div>
+
+
+<div class="card" data-name="password security">
+
+<div class="icon">🔐</div>
+
+<h3>Password Generator</h3>
+
+<p>
+Generate strong random passwords locally.
+</p>
+
+<button onclick="page('security')">
+Open
+</button>
+
+</div>
+
+
+<div class="card" data-name="device phone">
+
+<div class="icon">📱</div>
+
+<h3>Device Info</h3>
+
+<p>
+View basic browser and device information.
+</p>
+
+<button onclick="page('device')">
+Open
+</button>
+
+</div>
+
+
+<div class="card" data-name="qr utility">
+
+<div class="icon">▦</div>
+
+<h3>QR Generator</h3>
+
+<p>
+Create a QR code from text or a URL.
+</p>
+
+<button onclick="qr()">
+Open
+</button>
+
+</div>
+
+
+<div class="card" data-name="ai artificial intelligence">
+
+<div class="icon">🤖</div>
+
+<h3>AI Tools</h3>
+
+<p>
+AI utilities will be added in a later version.
+</p>
+
+<button onclick="alert('AI Tools are coming in Version 2.')">
+Open
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SOCIAL -->
+
+<section id="social" class="page">
+
+<h2 class="section-title">
+Social Tools
+</h2>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="icon">📸</div>
+
+<h3>Instagram</h3>
+
+<p>
+Open Instagram.
+</p>
+
+<button onclick="openInstagram()">
+Open Instagram
+</button>
+
+</div>
+
+
+<div class="card">
+
+<div class="icon">💬</div>
+
+<h3>WhatsApp</h3>
+
+<p>
+Open WhatsApp Web.
+</p>
+
+<button onclick="window.open('https://web.whatsapp.com/','_blank')">
+Open WhatsApp
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NETWORK -->
+
+<section id="network" class="page">
+
+<h2 class="section-title">
+Network Tools
+</h2>
+
+<div class="panel">
+
+<h2>🌐 Network Information</h2>
+
+<p>
+Information that your browser makes available to the website.
+</p>
+
+<button class="action" onclick="networkInfo()">
+Refresh
+</button>
+
+<div id="networkResult" class="result">
+Press Refresh.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SECURITY -->
+
+<section id="security" class="page">
+
+<h2 class="section-title">
+Security Tools
+</h2>
+
+<div class="panel">
+
+<h2>🔐 Password Generator</h2>
+
+<p>
+Passwords are generated locally in your browser.
+</p>
+
+<button class="action" onclick="password()">
+Generate Password
+</button>
+
+<div id="passwordResult" class="result">
+No password generated.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- DEVICE -->
+
+<section id="device" class="page">
+
+<h2 class="section-title">
+Device Tools
+</h2>
+
+<div class="panel">
+
+<h2>📱 Device Information</h2>
+
+<button class="action" onclick="deviceInfo()">
+Show Information
+</button>
+
+<div id="deviceResult" class="result">
+No information loaded.
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+
+<script>
+
+/* PAGE NAVIGATION */
+
+function page(id,button){
+
+document.querySelectorAll('.page')
+.forEach(x=>x.classList.remove('active'));
+
+const target=document.getElementById(id);
+
+if(target){
+target.classList.add('active');
+}
+
+document.querySelectorAll('.nav button')
+.forEach(x=>x.classList.remove('active'));
+
+if(button){
+button.classList.add('active');
+}
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
+}
+
+
+/* SEARCH */
+
+function searchTools(){
+
+const q=
+document.getElementById('search')
+.value
+.toLowerCase();
+
+document.querySelectorAll('#tools .card')
+.forEach(card=>{
+
+const name=
+card.dataset.name || '';
+
+card.style.display=
+name.includes(q)
+?'block'
+:'none';
+
+});
+
+}
+
+
+/* INSTAGRAM */
+
+function openInstagram(){
+
+window.open(
+'https://www.instagram.com/',
+'_blank'
+);
+
+}
+
+
+/* WHATSAPP */
+
+function whatsapp(){
+
+const number=
+prompt(
+'Enter phone number with country code, without + or spaces:'
+);
+
+if(!number)return;
+
+if(!/^[0-9]{7,15}$/.test(number)){
+
+alert('Invalid phone number.');
+
+return;
+
+}
+
+window.open(
+'https://wa.me/'+number,
+'_blank'
+);
+
+}
+
+
+/* LOCATION */
+
+function locationTool(){
+
+if(!navigator.geolocation){
+
+alert(
+'Geolocation is not supported.'
+);
+
+return;
+
+}
+
+navigator.geolocation.getCurrentPosition(
+
+position=>{
+
+const lat=
+position.coords.latitude;
+
+const lon=
+position.coords.longitude;
+
+alert(
+'Your location:\\n\\nLatitude: '+
+lat+
+'\\nLongitude: '+
+lon
+);
+
+},
+
+()=>{
+
+alert(
+'Location permission was denied or unavailable.'
+);
+
+}
+
+);
+
+}
+
+
+/* NETWORK */
+
+function networkInfo(){
+
+const connection=
+navigator.connection ||
+navigator.mozConnection ||
+navigator.webkitConnection;
+
+let text='';
+
+text+='Online: '+
+(navigator.onLine?'Yes':'No')+
+'\\n';
+
+text+='Browser: '+
+navigator.userAgent+
+'\\n';
+
+text+='Language: '+
+navigator.language+
+'\\n';
+
+text+='Timezone: '+
+Intl.DateTimeFormat()
+.resolvedOptions()
+.timeZone+
+'\\n';
+
+text+='Screen: '+
+screen.width+
+' × '+
+screen.height+
+'\\n';
+
+if(connection){
+
+text+='Connection: '+
+(connection.effectiveType||'Unknown')+
+'\\n';
+
+text+='Downlink: '+
+(connection.downlink||'Unknown')+
+' Mbps';
+
+}
+
+document.getElementById(
+'networkResult'
+).textContent=text;
+
+}
+
+
+/* PASSWORD */
+
+function password(){
+
+const chars=
+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'+
+'abcdefghijklmnopqrstuvwxyz'+
+'0123456789'+
+'!@#$%^&*()-_=+';
+
+let result='';
+
+for(let i=0;i<20;i++){
+
+result+=chars[
+Math.floor(
+Math.random()*chars.length
+)
+];
+
+}
+
+document.getElementById(
+'passwordResult'
+).textContent=result;
+
+}
+
+
+/* DEVICE */
+
+function deviceInfo(){
+
+let text='';
+
+text+='Browser:\\n'+
+navigator.userAgent+
+'\\n\\n';
+
+text+='Platform:\\n'+
+navigator.platform+
+'\\n\\n';
+
+text+='Language:\\n'+
+navigator.language+
+'\\n\\n';
+
+text+='Screen:\\n'+
+screen.width+
+' × '+
+screen.height+
+'\\n\\n';
+
+text+='Online:\\n'+
+(navigator.onLine?'Yes':'No')+
+'\\n\\n';
+
+text+='Timezone:\\n'+
+Intl.DateTimeFormat()
+.resolvedOptions()
+.timeZone;
+
+document.getElementById(
+'deviceResult'
+).textContent=text;
+
+}
+
+
+/* QR */
+
+function qr(){
+
+const value=
+prompt(
+'Enter text or URL for the QR code:'
+);
+
+if(!value)return;
+
+const url=
+'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+
+encodeURIComponent(value);
+
+const win=
+window.open();
+
+if(win){
+
+win.document.write(
+'<title>ROOT HUB QR</title>'+
+'<body style="background:#080b12;display:grid;place-items:center;min-height:100vh">'+
+'<img src="'+url+'" alt="QR Code">'+
+'</body>'
+);
+
+}
+
+}
+
+</script>
+
+</body>
+  </html>

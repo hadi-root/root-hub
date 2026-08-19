@@ -7,35 +7,27 @@
 <title>ROOT HUB</title>
 
 <style>
-*{
-box-sizing:border-box;
-margin:0;
-padding:0
-}
+*{box-sizing:border-box;margin:0;padding:0}
 
-html{
-scroll-behavior:smooth
-}
+html{scroll-behavior:smooth}
 
 body{
 font-family:Arial,Helvetica,sans-serif;
 background:#080b12;
 color:#f5f7fb;
-min-height:100vh
+min-height:100vh;
+transition:.25s;
 }
 
-button,input,textarea{
-font:inherit
+body.light{
+background:#f1f4f8;
+color:#10141c;
 }
 
-button{
-cursor:pointer
-}
+button,input,textarea{font:inherit}
+button{cursor:pointer}
 
-.app{
-display:flex;
-min-height:100vh
-}
+.app{display:flex;min-height:100vh}
 
 .sidebar{
 width:240px;
@@ -46,24 +38,27 @@ left:0;
 background:#0d111a;
 border-right:1px solid #202634;
 padding:25px 15px;
-z-index:100
+z-index:100;
+}
+
+body.light .sidebar{
+background:#ffffff;
+border-color:#dce2ea;
 }
 
 .logo{
 font-size:22px;
 font-weight:800;
 letter-spacing:1px;
-margin-bottom:30px
+margin-bottom:30px;
 }
 
-.logo span{
-color:#62e6a7
-}
+.logo span{color:#62e6a7}
 
 .nav{
 display:flex;
 flex-direction:column;
-gap:7px
+gap:7px;
 }
 
 .nav button{
@@ -73,48 +68,56 @@ color:#9ba5b7;
 padding:13px;
 border-radius:10px;
 text-align:left;
-transition:.2s
+transition:.2s;
 }
 
 .nav button:hover,
 .nav button.active{
 background:#171d29;
-color:white
+color:white;
+}
+
+body.light .nav button{
+color:#606b7c;
+}
+
+body.light .nav button:hover,
+body.light .nav button.active{
+background:#edf1f6;
+color:#111722;
 }
 
 .main{
 margin-left:240px;
 width:calc(100% - 240px);
-padding:25px
+padding:25px;
 }
 
 .top{
 display:flex;
 justify-content:space-between;
 align-items:center;
-margin-bottom:25px
+margin-bottom:25px;
 }
 
-.title h1{
-font-size:30px
-}
+.title h1{font-size:30px}
 
 .title p{
 color:#8d97a8;
-margin-top:6px
+margin-top:6px;
 }
+
+body.light .title p{color:#687386}
 
 .online{
 color:#62e6a7;
 border:1px solid #263443;
 padding:8px 12px;
 border-radius:20px;
-font-size:12px
+font-size:12px;
 }
 
-.search{
-margin-bottom:25px
-}
+.search{margin-bottom:25px}
 
 .search input{
 width:100%;
@@ -123,30 +126,29 @@ border-radius:12px;
 border:1px solid #252f3f;
 background:#101620;
 color:white;
-outline:none
+outline:none;
 }
 
-.search input:focus{
-border-color:#62e6a7
+body.light .search input{
+background:white;
+color:#111722;
+border-color:#d5dce6;
 }
 
-.page{
-display:none
-}
+.search input:focus{border-color:#62e6a7}
 
-.page.active{
-display:block
-}
+.page{display:none}
+.page.active{display:block}
 
 .section-title{
 font-size:18px;
-margin-bottom:15px
+margin-bottom:15px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
-gap:15px
+gap:15px;
 }
 
 .card{
@@ -154,12 +156,20 @@ background:#101620;
 border:1px solid #202938;
 border-radius:16px;
 padding:20px;
-transition:.2s
+transition:.2s;
+}
+
+body.light .card,
+body.light .panel,
+body.light .security-card,
+body.light .settings-card{
+background:#fff;
+border-color:#dce2ea;
 }
 
 .card:hover{
 transform:translateY(-3px);
-border-color:#3b4659
+border-color:#3b4659;
 }
 
 .icon{
@@ -170,20 +180,24 @@ place-items:center;
 background:#171e2b;
 border-radius:12px;
 font-size:21px;
-margin-bottom:15px
+margin-bottom:15px;
 }
+
+body.light .icon{background:#edf1f6}
 
 .card h3{
 font-size:16px;
-margin-bottom:7px
+margin-bottom:7px;
 }
 
 .card p{
 color:#8993a5;
 font-size:13px;
 line-height:1.5;
-min-height:40px
+min-height:40px;
 }
+
+body.light .card p{color:#687386}
 
 .card button{
 width:100%;
@@ -193,30 +207,28 @@ border:0;
 border-radius:9px;
 background:#1b2432;
 color:white;
-transition:.2s
+transition:.2s;
 }
 
-.card button:hover{
-background:#293548
-}
+.card button:hover{background:#293548}
 
 .panel{
 margin-top:20px;
 background:#101620;
 border:1px solid #202938;
 border-radius:16px;
-padding:20px
+padding:20px;
 }
 
-.panel h2{
-margin-bottom:8px
-}
+.panel h2{margin-bottom:8px}
 
 .panel p{
 color:#929cad;
 line-height:1.5;
-margin-bottom:15px
+margin-bottom:15px;
 }
+
+body.light .panel p{color:#687386}
 
 .action{
 background:#62e6a7;
@@ -224,12 +236,10 @@ color:#07100c;
 border:0;
 border-radius:9px;
 padding:11px 16px;
-font-weight:bold
+font-weight:bold;
 }
 
-.action:hover{
-opacity:.9
-}
+.action:hover{opacity:.9}
 
 .secondary{
 background:#1b2432;
@@ -237,12 +247,10 @@ color:white;
 border:1px solid #2c3748;
 border-radius:9px;
 padding:11px 16px;
-font-weight:bold
+font-weight:bold;
 }
 
-.secondary:hover{
-background:#293548
-}
+.secondary:hover{background:#293548}
 
 .text{
 width:100%;
@@ -252,16 +260,13 @@ color:white;
 padding:12px;
 border-radius:9px;
 margin-bottom:12px;
-outline:none
+outline:none;
 }
 
-.text:focus{
-border-color:#62e6a7
-}
-
-textarea.text{
-min-height:110px;
-resize:vertical
+body.light .text{
+background:#f7f9fb;
+color:#111722;
+border-color:#d5dce6;
 }
 
 .result{
@@ -272,13 +277,13 @@ border-radius:10px;
 padding:15px;
 white-space:pre-wrap;
 word-break:break-word;
-line-height:1.6
+line-height:1.6;
 }
 
-.tool-row{
-display:flex;
-gap:10px;
-flex-wrap:wrap
+body.light .result{
+background:#f7f9fb;
+border-color:#dce2ea;
+color:#111722;
 }
 
 .status{
@@ -286,41 +291,41 @@ display:inline-block;
 padding:5px 9px;
 border-radius:20px;
 font-size:11px;
-margin-top:8px
+margin-top:8px;
 }
 
 .ready{
 background:#12251d;
 color:#62e6a7;
-border:1px solid #234d3a
+border:1px solid #234d3a;
 }
 
 .coming{
 background:#1c1c20;
 color:#b6bdca;
-border:1px solid #353944
+border:1px solid #353944;
 }
 
 .coming-box{
 text-align:center;
-padding:45px 25px
+padding:45px 25px;
 }
 
 .coming-icon{
 font-size:50px;
-margin-bottom:18px
+margin-bottom:18px;
 }
 
 .coming-box h2{
 font-size:28px;
-margin-bottom:10px
+margin-bottom:10px;
 }
 
 .coming-box p{
 max-width:600px;
 margin:0 auto 22px;
 color:#929cad;
-line-height:1.7
+line-height:1.7;
 }
 
 .coming-badge{
@@ -332,36 +337,34 @@ border:1px solid #3a4352;
 color:#62e6a7;
 font-size:12px;
 font-weight:bold;
-letter-spacing:1px
+letter-spacing:1px;
 }
 
 .security-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
-gap:15px
+gap:15px;
 }
 
 .security-card{
 background:#0d111a;
 border:1px solid #202938;
 border-radius:14px;
-padding:18px
+padding:18px;
 }
 
-.security-card h3{
-margin-bottom:8px
-}
+.security-card h3{margin-bottom:8px}
 
 .security-card p{
 font-size:13px;
 color:#8993a5;
-min-height:40px
+min-height:40px;
 }
 
 .password-box{
 display:flex;
 gap:8px;
-margin-top:12px
+margin-top:12px;
 }
 
 .password-box input{
@@ -371,7 +374,7 @@ background:#080b12;
 border:1px solid #293344;
 color:white;
 padding:12px;
-border-radius:9px
+border-radius:9px;
 }
 
 .password-box button{
@@ -379,7 +382,7 @@ background:#1b2432;
 border:0;
 color:white;
 border-radius:9px;
-padding:0 14px
+padding:0 14px;
 }
 
 .strength{
@@ -387,45 +390,128 @@ margin-top:10px;
 height:8px;
 background:#1a202b;
 border-radius:20px;
-overflow:hidden
+overflow:hidden;
 }
 
 .strength-bar{
 height:100%;
 width:0;
 background:#62e6a7;
-transition:.3s
+transition:.3s;
 }
 
 .strength-text{
 font-size:12px;
 color:#929cad;
-margin-top:8px
+margin-top:8px;
+}
+
+.settings-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.settings-card{
+background:#101620;
+border:1px solid #202938;
+border-radius:16px;
+padding:20px;
+}
+
+.settings-card h3{
+margin-bottom:8px;
+}
+
+.settings-card p{
+color:#929cad;
+font-size:13px;
+line-height:1.6;
+margin-bottom:15px;
+}
+
+.setting-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+padding:14px 0;
+border-bottom:1px solid #202938;
+}
+
+body.light .setting-row{
+border-color:#e3e7ed;
+}
+
+.setting-row:last-child{
+border-bottom:0;
+}
+
+.setting-label strong{
+display:block;
+font-size:14px;
+}
+
+.setting-label span{
+display:block;
+font-size:12px;
+color:#8993a5;
+margin-top:4px;
+}
+
+.toggle{
+width:48px;
+height:26px;
+border:0;
+border-radius:20px;
+background:#293344;
+position:relative;
+transition:.2s;
+}
+
+.toggle::after{
+content:"";
+position:absolute;
+width:20px;
+height:20px;
+border-radius:50%;
+background:white;
+top:3px;
+left:4px;
+transition:.2s;
+}
+
+.toggle.on{
+background:#62e6a7;
+}
+
+.toggle.on::after{
+left:24px;
 }
 
 .stat-grid{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:15px;
-margin-top:20px
+margin-top:20px;
 }
 
 .stat{
 background:#0d111a;
 border:1px solid #202938;
 border-radius:14px;
-padding:18px
+padding:18px;
 }
 
 .stat-label{
 color:#8993a5;
 font-size:12px;
-margin-bottom:8px
+margin-bottom:8px;
 }
 
 .stat-value{
 font-size:24px;
-font-weight:bold
+font-weight:bold;
 }
 
 .footer{
@@ -434,23 +520,14 @@ padding:20px 0;
 border-top:1px solid #202938;
 color:#667083;
 font-size:12px;
-text-align:center
+text-align:center;
 }
 
 @media(max-width:1000px){
-
-.grid{
-grid-template-columns:repeat(2,1fr)
-}
-
-.security-grid{
-grid-template-columns:1fr
-}
-
-.stat-grid{
-grid-template-columns:repeat(2,1fr)
-}
-
+.grid{grid-template-columns:repeat(2,1fr)}
+.security-grid{grid-template-columns:1fr}
+.settings-grid{grid-template-columns:1fr}
+.stat-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:700px){
@@ -461,50 +538,39 @@ height:65px;
 width:100%;
 padding:7px;
 border-right:0;
-border-top:1px solid #202634
+border-top:1px solid #202634;
 }
 
-.logo{
-display:none
-}
+.logo{display:none}
 
 .nav{
 flex-direction:row;
-justify-content:space-around
+justify-content:space-around;
 }
 
 .nav button{
 font-size:11px;
-padding:9px
+padding:9px;
 }
 
 .main{
 margin-left:0;
 width:100%;
 padding:18px;
-padding-bottom:90px
+padding-bottom:90px;
 }
 
-.top{
-align-items:flex-start
-}
+.top{align-items:flex-start}
 
-.title h1{
-font-size:24px
-}
+.title h1{font-size:24px}
 
-.online{
-font-size:10px
-}
+.online{font-size:10px}
 
-.grid{
-grid-template-columns:1fr
-}
+.grid{grid-template-columns:1fr}
 
-.stat-grid{
-grid-template-columns:1fr 1fr
-}
+.stat-grid{grid-template-columns:1fr 1fr}
 
+.setting-row{align-items:flex-start}
 }
 </style>
 </head>
@@ -539,6 +605,10 @@ ROOT <span>HUB</span>
 
 <button onclick="page('device',this)">
 📱 Device
+</button>
+
+<button onclick="page('settings',this)">
+⚙️ Settings
 </button>
 
 </nav>
@@ -588,9 +658,7 @@ Tools
 
 <div class="card" data-name="instagram social">
 
-<div class="icon">
-📸
-</div>
+<div class="icon">📸</div>
 
 <h3>Instagram</h3>
 
@@ -611,9 +679,7 @@ View
 
 <div class="card" data-name="whatsapp social">
 
-<div class="icon">
-💬
-</div>
+<div class="icon">💬</div>
 
 <h3>WhatsApp</h3>
 
@@ -634,9 +700,7 @@ Open
 
 <div class="card" data-name="network internet">
 
-<div class="icon">
-🌐
-</div>
+<div class="icon">🌐</div>
 
 <h3>Network Info</h3>
 
@@ -657,9 +721,7 @@ Open
 
 <div class="card" data-name="location gps">
 
-<div class="icon">
-📍
-</div>
+<div class="icon">📍</div>
 
 <h3>My Location</h3>
 
@@ -680,9 +742,7 @@ Open
 
 <div class="card" data-name="password security hash">
 
-<div class="icon">
-🔐
-</div>
+<div class="icon">🔐</div>
 
 <h3>Security Center</h3>
 
@@ -703,9 +763,7 @@ Open
 
 <div class="card" data-name="device phone">
 
-<div class="icon">
-📱
-</div>
+<div class="icon">📱</div>
 
 <h3>Device Info</h3>
 
@@ -726,9 +784,7 @@ Open
 
 <div class="card" data-name="qr utility">
 
-<div class="icon">
-▦
-</div>
+<div class="icon">▦</div>
 
 <h3>QR Generator</h3>
 
@@ -749,9 +805,7 @@ Open
 
 <div class="card" data-name="ai artificial intelligence">
 
-<div class="icon">
-🤖
-</div>
+<div class="icon">🤖</div>
 
 <h3>AI Tools</h3>
 
@@ -789,19 +843,14 @@ Social Tools
 
 <div class="panel coming-box">
 
-<div class="coming-icon">
-📸
-</div>
+<div class="coming-icon">📸</div>
 
-<h2>
-Instagram Control
-</h2>
+<h2>Instagram Control</h2>
 
 <p>
 Real Instagram account connection, analytics,
-content management and other supported features
-will be added after the ROOT HUB core platform is
-completed.
+content management and supported features will be
+added after the ROOT HUB core platform is completed.
 </p>
 
 <div class="coming-badge">
@@ -813,20 +862,14 @@ COMING SOON
 
 <div class="panel">
 
-<h2>
-💬 WhatsApp
-</h2>
+<h2>💬 WhatsApp</h2>
 
 <p>
 Open WhatsApp Web or start a chat using a phone number.
 </p>
 
-<button
-class="action"
-onclick="whatsapp()">
-
+<button class="action" onclick="whatsapp()">
 Open WhatsApp
-
 </button>
 
 </div>
@@ -850,12 +893,8 @@ Network Center
 Information that your browser makes available to ROOT HUB.
 </p>
 
-<button
-class="action"
-onclick="networkInfo()">
-
+<button class="action" onclick="networkInfo()">
 Refresh
-
 </button>
 
 <div id="networkResult" class="result">
@@ -880,13 +919,9 @@ Security Center
 
 <div class="security-card">
 
-<div class="icon">
-🔑
-</div>
+<div class="icon">🔑</div>
 
-<h3>
-Secure Password Generator
-</h3>
+<h3>Secure Password Generator</h3>
 
 <p>
 Generate a strong random password locally.
@@ -907,12 +942,8 @@ Copy
 
 <div class="tool-row">
 
-<button
-class="action"
-onclick="generatePassword()">
-
+<button class="action" onclick="generatePassword()">
 Generate
-
 </button>
 
 </div>
@@ -922,13 +953,9 @@ Generate
 
 <div class="security-card">
 
-<div class="icon">
-📊
-</div>
+<div class="icon">📊</div>
 
-<h3>
-Password Strength Checker
-</h3>
+<h3>Password Strength Checker</h3>
 
 <p>
 Check password strength locally.
@@ -943,19 +970,12 @@ oninput="checkPasswordStrength()">
 
 <div class="strength">
 
-<div
-id="strengthBar"
-class="strength-bar">
-</div>
+<div id="strengthBar" class="strength-bar"></div>
 
 </div>
 
-<div
-id="strengthText"
-class="strength-text">
-
+<div id="strengthText" class="strength-text">
 Enter a password to check its strength.
-
 </div>
 
 </div>
@@ -963,13 +983,9 @@ Enter a password to check its strength.
 
 <div class="security-card">
 
-<div class="icon">
-#
-</div>
+<div class="icon">#</div>
 
-<h3>
-SHA-256 Hash
-</h3>
+<h3>SHA-256 Hash</h3>
 
 <p>
 Generate a SHA-256 hash from text.
@@ -980,29 +996,19 @@ id="hashInput"
 class="text"
 placeholder="Enter text to hash"></textarea>
 
-<button
-class="action"
-onclick="generateHash()">
-
+<button class="action" onclick="generateHash()">
 Generate Hash
-
 </button>
 
-<div
-id="hashResult"
-class="result">
-
+<div id="hashResult" class="result">
 Hash will appear here.
-
 </div>
 
 <button
 class="secondary"
 style="margin-top:10px"
 onclick="copyText('hashResult')">
-
 Copy Hash
-
 </button>
 
 </div>
@@ -1010,42 +1016,30 @@ Copy Hash
 
 <div class="security-card">
 
-<div class="icon">
-🆔
-</div>
+<div class="icon">🆔</div>
 
-<h3>
-UUID Generator
-</h3>
+<h3>UUID Generator</h3>
 
 <p>
 Generate a random UUID locally.
 </p>
 
-<div
-id="uuidResult"
-class="result">
-
+<div id="uuidResult" class="result">
 No UUID generated.
-
 </div>
 
 <button
 class="action"
 style="margin-top:12px"
 onclick="generateUUID()">
-
 Generate UUID
-
 </button>
 
 <button
 class="secondary"
 style="margin-top:10px"
 onclick="copyText('uuidResult')">
-
 Copy UUID
-
 </button>
 
 </div>
@@ -1053,42 +1047,30 @@ Copy UUID
 
 <div class="security-card">
 
-<div class="icon">
-🎲
-</div>
+<div class="icon">🎲</div>
 
-<h3>
-Secure Random Token
-</h3>
+<h3>Secure Random Token</h3>
 
 <p>
 Generate cryptographically secure random bytes.
 </p>
 
-<div
-id="tokenResult"
-class="result">
-
+<div id="tokenResult" class="result">
 No token generated.
-
 </div>
 
 <button
 class="action"
 style="margin-top:12px"
 onclick="generateToken()">
-
 Generate Token
-
 </button>
 
 <button
 class="secondary"
 style="margin-top:10px"
 onclick="copyText('tokenResult')">
-
 Copy Token
-
 </button>
 
 </div>
@@ -1096,13 +1078,9 @@ Copy Token
 
 <div class="security-card">
 
-<div class="icon">
-🛡️
-</div>
+<div class="icon">🛡️</div>
 
-<h3>
-Security Information
-</h3>
+<h3>Security Information</h3>
 
 <p>
 ROOT HUB security tools operate locally in your browser.
@@ -1121,7 +1099,6 @@ ROOT HUB security tools operate locally in your browser.
 
 </div>
 
-
 </div>
 
 </section>
@@ -1137,29 +1114,254 @@ Device Center
 
 <div class="panel">
 
-<h2>
-📱 Device Information
-</h2>
+<h2>📱 Device Information</h2>
 
 <p>
 View information made available by your browser.
 </p>
 
-<button
-class="action"
-onclick="deviceInfo()">
-
+<button class="action" onclick="deviceInfo()">
 Show Information
+</button>
+
+<div id="deviceResult" class="result">
+No information loaded.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SETTINGS -->
+
+<section id="settings" class="page">
+
+<h2 class="section-title">
+Settings Center
+</h2>
+
+<div class="settings-grid">
+
+
+<!-- APPEARANCE -->
+
+<div class="settings-card">
+
+<div class="icon">🎨</div>
+
+<h3>Appearance</h3>
+
+<p>
+Customize the ROOT HUB interface appearance.
+</p>
+
+<div class="setting-row">
+
+<div class="setting-label">
+
+<strong>Dark Mode</strong>
+
+<span>
+Use the futuristic dark interface.
+</span>
+
+</div>
+
+<button
+id="themeToggle"
+class="toggle on"
+onclick="toggleTheme()">
+</button>
+
+</div>
+
+</div>
+
+
+<!-- NOTIFICATIONS -->
+
+<div class="settings-card">
+
+<div class="icon">🔔</div>
+
+<h3>Notifications</h3>
+
+<p>
+Control browser notification preference for ROOT HUB.
+</p>
+
+<div class="setting-row">
+
+<div class="setting-label">
+
+<strong>Notifications</strong>
+
+<span>
+Enable supported browser notifications.
+</span>
+
+</div>
+
+<button
+id="notificationToggle"
+class="toggle"
+onclick="toggleNotifications()">
+</button>
+
+</div>
+
+<div
+id="notificationStatus"
+class="result">
+
+Notifications are disabled.
+
+</div>
+
+</div>
+
+
+<!-- PRIVACY -->
+
+<div class="settings-card">
+
+<div class="icon">🔒</div>
+
+<h3>Privacy</h3>
+
+<p>
+ROOT HUB should only request permissions when a feature needs them.
+</p>
+
+<div class="result">
+
+📍 Location requires permission.
+
+🔐 Security tools run locally.
+
+📸 Instagram will require official authorization.
+
+🔑 ROOT HUB will not ask for your Instagram password.
+
+</div>
+
+</div>
+
+
+<!-- DATA -->
+
+<div class="settings-card">
+
+<div class="icon">🧹</div>
+
+<h3>Local Data</h3>
+
+<p>
+Remove preferences stored locally by ROOT HUB.
+</p>
+
+<button
+class="secondary"
+onclick="clearLocalData()">
+
+Clear Local Data
 
 </button>
 
 <div
-id="deviceResult"
+id="clearStatus"
 class="result">
 
-No information loaded.
+Your ROOT HUB preferences are stored locally when required.
 
 </div>
+
+</div>
+
+
+<!-- BACKEND -->
+
+<div class="settings-card">
+
+<div class="icon">🌐</div>
+
+<h3>Backend Status</h3>
+
+<p>
+Check whether ROOT HUB can communicate with its backend.
+</p>
+
+<div class="setting-row">
+
+<div class="setting-label">
+
+<strong>Frontend</strong>
+
+<span>
+Current ROOT HUB website.
+</span>
+
+</div>
+
+<span class="status ready">
+ONLINE
+</span>
+
+</div>
+
+<div class="setting-row">
+
+<div class="setting-label">
+
+<strong>Backend</strong>
+
+<span>
+API integration will be connected later.
+</span>
+
+</div>
+
+<span class="status coming">
+PENDING
+</span>
+
+</div>
+
+</div>
+
+
+<!-- ABOUT -->
+
+<div class="settings-card">
+
+<div class="icon">ℹ️</div>
+
+<h3>About ROOT HUB</h3>
+
+<p>
+Your personal all-in-one web toolkit.
+</p>
+
+<div class="result">
+
+ROOT HUB
+
+Version: 1.0
+
+Building Code.
+Creating Tomorrow.
+
+Instagram:
+COMING SOON
+
+AI:
+COMING SOON
+
+</div>
+
+</div>
+
 
 </div>
 
@@ -1183,8 +1385,7 @@ document
 x.classList.remove('active');
 });
 
-const target=
-document.getElementById(id);
+const target=document.getElementById(id);
 
 if(target){
 target.classList.add('active');
@@ -1223,8 +1424,7 @@ document
 .querySelectorAll('#tools .card')
 .forEach(function(card){
 
-const name=
-card.dataset.name || '';
+const name=card.dataset.name || '';
 
 card.style.display=
 name.includes(q)
@@ -1245,9 +1445,7 @@ prompt(
 'Enter phone number with country code, without + or spaces:'
 );
 
-if(!number){
-return;
-}
+if(!number)return;
 
 if(!/^[0-9]{7,15}$/.test(number)){
 
@@ -1281,20 +1479,15 @@ navigator.geolocation.getCurrentPosition(
 
 function(position){
 
-const lat=
-position.coords.latitude;
-
-const lon=
-position.coords.longitude;
-
-const accuracy=
-position.coords.accuracy;
+const lat=position.coords.latitude;
+const lon=position.coords.longitude;
+const accuracy=position.coords.accuracy;
 
 alert(
-'Your Location\\n\\n' +
+'Your Location\n\n'+
 'Latitude: '+lat+
-'\\nLongitude: '+lon+
-'\\nAccuracy: '+accuracy+' meters'
+'\nLongitude: '+lon+
+'\nAccuracy: '+accuracy+' meters'
 );
 
 },
@@ -1323,44 +1516,37 @@ navigator.webkitConnection;
 
 let text='';
 
-text+=
-'Online: '+
+text+='Online: '+
 (navigator.onLine?'Yes':'No')+
-'\\n';
+'\n';
 
-text+=
-'Browser: '+
+text+='Browser: '+
 navigator.userAgent+
-'\\n';
+'\n';
 
-text+=
-'Language: '+
+text+='Language: '+
 navigator.language+
-'\\n';
+'\n';
 
-text+=
-'Timezone: '+
+text+='Timezone: '+
 Intl.DateTimeFormat()
 .resolvedOptions()
 .timeZone+
-'\\n';
+'\n';
 
-text+=
-'Screen: '+
+text+='Screen: '+
 screen.width+
 ' × '+
 screen.height+
-'\\n';
+'\n';
 
 if(connection){
 
-text+=
-'Connection: '+
+text+='Connection: '+
 (connection.effectiveType||'Unknown')+
-'\\n';
+'\n';
 
-text+=
-'Downlink: '+
+text+='Downlink: '+
 (connection.downlink||'Unknown')+
 ' Mbps';
 
@@ -1373,36 +1559,25 @@ document
 }
 
 
-/* PASSWORD GENERATOR */
+/* PASSWORD */
 
 function generatePassword(){
 
-const upper=
-'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-
-const lower=
-'abcdefghijklmnopqrstuvwxyz';
-
-const numbers=
-'0123456789';
-
-const symbols=
-'!@#$%^&*()-_=+[]{}';
-
-const all=
-upper+lower+numbers+symbols;
+const upper='ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const lower='abcdefghijklmnopqrstuvwxyz';
+const numbers='0123456789';
+const symbols='!@#$%^&*()-_=+[]{}';
+const all=upper+lower+numbers+symbols;
 
 let result='';
 
-const array=
-new Uint32Array(24);
+const array=new Uint32Array(24);
 
 crypto.getRandomValues(array);
 
 for(let i=0;i<24;i++){
 
-result+=
-all[array[i]%all.length];
+result+=all[array[i]%all.length];
 
 }
 
@@ -1416,16 +1591,13 @@ document
 function copyPassword(){
 
 const input=
-document.getElementById(
-'generatedPassword'
-);
+document.getElementById('generatedPassword');
 
 if(!input.value){
 
 alert('Generate a password first.');
 
 return;
-
 }
 
 navigator.clipboard
@@ -1471,17 +1643,16 @@ text.textContent=
 'Enter a password to check its strength.';
 
 return;
-
 }
 
 let score=0;
 
-if(value.length>=8) score++;
-if(value.length>=12) score++;
-if(/[A-Z]/.test(value)) score++;
-if(/[a-z]/.test(value)) score++;
-if(/[0-9]/.test(value)) score++;
-if(/[^A-Za-z0-9]/.test(value)) score++;
+if(value.length>=8)score++;
+if(value.length>=12)score++;
+if(/[A-Z]/.test(value))score++;
+if(/[a-z]/.test(value))score++;
+if(/[0-9]/.test(value))score++;
+if(/[^A-Za-z0-9]/.test(value))score++;
 
 if(score<=2){
 
@@ -1511,26 +1682,22 @@ text.textContent=
 }
 
 
-/* SHA-256 */
+/* HASH */
 
 async function generateHash(){
 
 const input=
-document
-.getElementById('hashInput')
-.value;
+document.getElementById('hashInput').value;
 
 if(!input){
 
 alert('Enter text first.');
 
 return;
-
 }
 
 const data=
-new TextEncoder()
-.encode(input);
+new TextEncoder().encode(input);
 
 const hashBuffer=
 await crypto.subtle.digest(
@@ -1539,9 +1706,7 @@ data
 );
 
 const hashArray=
-Array.from(
-new Uint8Array(hashBuffer)
-);
+Array.from(new Uint8Array(hashBuffer));
 
 const hash=
 hashArray
@@ -1577,20 +1742,15 @@ uuid=crypto.randomUUID();
 }
 else{
 
-const bytes=
-new Uint8Array(16);
+const bytes=new Uint8Array(16);
 
 crypto.getRandomValues(bytes);
 
-bytes[6]=
-(bytes[6]&15)|64;
-
-bytes[8]=
-(bytes[8]&63)|128;
+bytes[6]=(bytes[6]&15)|64;
+bytes[8]=(bytes[8]&63)|128;
 
 uuid=
-Array
-.from(bytes)
+Array.from(bytes)
 .map(function(b){
 
 return b
@@ -1616,18 +1776,16 @@ document
 }
 
 
-/* SECURE TOKEN */
+/* RANDOM TOKEN */
 
 function generateToken(){
 
-const bytes=
-new Uint8Array(32);
+const bytes=new Uint8Array(32);
 
 crypto.getRandomValues(bytes);
 
 const token=
-Array
-.from(bytes)
+Array.from(bytes)
 .map(function(byte){
 
 return byte
@@ -1648,8 +1806,7 @@ document
 
 function copyText(id){
 
-const element=
-document.getElementById(id);
+const element=document.getElementById(id);
 
 const value=
 element.innerText ||
@@ -1663,7 +1820,6 @@ value.includes('No token')){
 alert('Nothing to copy yet.');
 
 return;
-
 }
 
 navigator.clipboard
@@ -1701,53 +1857,45 @@ function deviceInfo(){
 
 let text='';
 
-text+=
-'Browser:\\n'+
+text+='Browser:\n'+
 navigator.userAgent+
-'\\n\\n';
+'\n\n';
 
-text+=
-'Platform:\\n'+
+text+='Platform:\n'+
 navigator.platform+
-'\\n\\n';
+'\n\n';
 
-text+=
-'Language:\\n'+
+text+='Language:\n'+
 navigator.language+
-'\\n\\n';
+'\n\n';
 
-text+=
-'Screen:\\n'+
+text+='Screen:\n'+
 screen.width+
 ' × '+
 screen.height+
-'\\n\\n';
+'\n\n';
 
-text+=
-'Online:\\n'+
+text+='Online:\n'+
 (navigator.onLine?'Yes':'No')+
-'\\n\\n';
+'\n\n';
 
-text+=
-'Timezone:\\n'+
+text+='Timezone:\n'+
 Intl.DateTimeFormat()
 .resolvedOptions()
 .timeZone+
-'\\n\\n';
+'\n\n';
 
 if(navigator.hardwareConcurrency){
 
-text+=
-'CPU Cores Available: '+
+text+='CPU Cores Available: '+
 navigator.hardwareConcurrency+
-'\\n\\n';
+'\n\n';
 
 }
 
 if(navigator.deviceMemory){
 
-text+=
-'Approx. Device Memory: '+
+text+='Approx. Device Memory: '+
 navigator.deviceMemory+
 ' GB';
 
@@ -1769,31 +1917,23 @@ prompt(
 'Enter text or URL for the QR code:'
 );
 
-if(!value){
-return;
-}
+if(!value)return;
 
 const url=
 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+
 encodeURIComponent(value);
 
-const win=
-window.open();
+const win=window.open();
 
 if(win){
 
 win.document.write(
-
 '<!DOCTYPE html>'+
 '<html>'+
-'<head>'+
-'<title>ROOT HUB QR</title>'+
-'</head>'+
+'<head><title>ROOT HUB QR</title></head>'+
 '<body style="background:#080b12;display:grid;place-items:center;min-height:100vh;margin:0">'+
 '<img src="'+url+'" alt="ROOT HUB QR Code">'+
-'</body>'+
-'</html>'
-
+'</body></html>'
 );
 
 }
@@ -1810,6 +1950,230 @@ alert(
 );
 
 }
+
+
+/* =========================
+SETTINGS
+========================= */
+
+
+/* THEME */
+
+function toggleTheme(){
+
+const isLight=
+document.body.classList.toggle('light');
+
+const toggle=
+document.getElementById('themeToggle');
+
+if(isLight){
+
+toggle.classList.remove('on');
+
+localStorage.setItem(
+'rootHubTheme',
+'light'
+);
+
+}
+else{
+
+toggle.classList.add('on');
+
+localStorage.setItem(
+'rootHubTheme',
+'dark'
+);
+
+}
+
+}
+
+
+/* LOAD THEME */
+
+function loadTheme(){
+
+const saved=
+localStorage.getItem('rootHubTheme');
+
+const toggle=
+document.getElementById('themeToggle');
+
+if(saved==='light'){
+
+document.body.classList.add('light');
+
+toggle.classList.remove('on');
+
+}
+else{
+
+toggle.classList.add('on');
+
+}
+
+}
+
+
+/* NOTIFICATIONS */
+
+function toggleNotifications(){
+
+const toggle=
+document.getElementById('notificationToggle');
+
+if(
+Notification &&
+Notification.permission==='granted'
+){
+
+toggle.classList.add('on');
+
+localStorage.setItem(
+'rootHubNotifications',
+'on'
+);
+
+document
+.getElementById('notificationStatus')
+.textContent=
+'Notifications are enabled.';
+
+return;
+}
+
+if(
+!('Notification' in window)
+){
+
+alert(
+'This browser does not support notifications.'
+);
+
+return;
+}
+
+Notification.requestPermission()
+.then(function(permission){
+
+if(permission==='granted'){
+
+toggle.classList.add('on');
+
+localStorage.setItem(
+'rootHubNotifications',
+'on'
+);
+
+document
+.getElementById('notificationStatus')
+.textContent=
+'Notifications are enabled.';
+
+}
+else{
+
+toggle.classList.remove('on');
+
+localStorage.setItem(
+'rootHubNotifications',
+'off'
+);
+
+document
+.getElementById('notificationStatus')
+.textContent=
+'Notification permission was not granted.';
+
+}
+
+});
+
+}
+
+
+/* LOAD NOTIFICATION SETTING */
+
+function loadNotifications(){
+
+const saved=
+localStorage.getItem(
+'rootHubNotifications'
+);
+
+const toggle=
+document.getElementById(
+'notificationToggle'
+);
+
+const status=
+document.getElementById(
+'notificationStatus'
+);
+
+if(saved==='on'){
+
+toggle.classList.add('on');
+
+status.textContent=
+'Notifications are enabled.';
+
+}
+else{
+
+toggle.classList.remove('on');
+
+status.textContent=
+'Notifications are disabled.';
+
+}
+
+}
+
+
+/* CLEAR LOCAL DATA */
+
+function clearLocalData(){
+
+const confirmed=
+confirm(
+'Clear ROOT HUB preferences stored on this browser?'
+);
+
+if(!confirmed)return;
+
+localStorage.removeItem('rootHubTheme');
+localStorage.removeItem('rootHubNotifications');
+
+document.body.classList.remove('light');
+
+document
+.getElementById('themeToggle')
+.classList.add('on');
+
+document
+.getElementById('notificationToggle')
+.classList.remove('on');
+
+document
+.getElementById('notificationStatus')
+.textContent=
+'Notifications are disabled.';
+
+document
+.getElementById('clearStatus')
+.textContent=
+'ROOT HUB local preferences have been cleared.';
+
+}
+
+
+/* INITIALIZE SETTINGS */
+
+loadTheme();
+loadNotifications();
 
 </script>
 

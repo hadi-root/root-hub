@@ -37,8 +37,6 @@ display:flex;
 min-height:100vh
 }
 
-/* SIDEBAR */
-
 .sidebar{
 width:240px;
 position:fixed;
@@ -84,8 +82,6 @@ background:#171d29;
 color:white
 }
 
-/* MAIN */
-
 .main{
 margin-left:240px;
 width:calc(100% - 240px);
@@ -116,8 +112,6 @@ border-radius:20px;
 font-size:12px
 }
 
-/* SEARCH */
-
 .search{
 margin-bottom:25px
 }
@@ -136,8 +130,6 @@ outline:none
 border-color:#62e6a7
 }
 
-/* PAGES */
-
 .page{
 display:none
 }
@@ -145,8 +137,6 @@ display:none
 .page.active{
 display:block
 }
-
-/* COMMON */
 
 .section-title{
 font-size:18px;
@@ -291,11 +281,6 @@ gap:10px;
 flex-wrap:wrap
 }
 
-.tool-row .action,
-.tool-row .secondary{
-margin-top:0
-}
-
 .status{
 display:inline-block;
 padding:5px 9px;
@@ -312,127 +297,43 @@ border:1px solid #234d3a
 
 .coming{
 background:#1c1c20;
-color:#9ba5b7;
-border:1px solid #30333c
+color:#b6bdca;
+border:1px solid #353944
 }
 
-/* INSTAGRAM */
-
-.instagram-header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-flex-wrap:wrap
+.coming-box{
+text-align:center;
+padding:45px 25px
 }
 
-.instagram-profile{
-display:flex;
-align-items:center;
-gap:15px
+.coming-icon{
+font-size:50px;
+margin-bottom:18px
 }
 
-.instagram-avatar{
-width:65px;
-height:65px;
-border-radius:50%;
-background:#171e2b;
-border:2px solid #62e6a7;
-display:grid;
-place-items:center;
-font-size:27px
+.coming-box h2{
+font-size:28px;
+margin-bottom:10px
 }
 
-.instagram-status{
-font-size:13px;
-margin-top:5px
+.coming-box p{
+max-width:600px;
+margin:0 auto 22px;
+color:#929cad;
+line-height:1.7
 }
 
-.disconnected{
-color:#9ba5b7
-}
-
-.stat-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-margin-top:20px
-}
-
-.stat{
-background:#0d111a;
-border:1px solid #202938;
-border-radius:14px;
-padding:18px
-}
-
-.stat-label{
-color:#8993a5;
+.coming-badge{
+display:inline-block;
+padding:9px 16px;
+border-radius:30px;
+background:#171d29;
+border:1px solid #3a4352;
+color:#62e6a7;
 font-size:12px;
-margin-bottom:8px
+font-weight:bold;
+letter-spacing:1px
 }
-
-.stat-value{
-font-size:24px;
-font-weight:bold
-}
-
-.instagram-tools{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:15px;
-margin-top:20px
-}
-
-.social-tool{
-background:#0d111a;
-border:1px solid #202938;
-border-radius:14px;
-padding:18px;
-transition:.2s
-}
-
-.social-tool:hover{
-border-color:#3b4659;
-transform:translateY(-2px)
-}
-
-.social-tool h3{
-margin-bottom:8px
-}
-
-.social-tool p{
-font-size:13px;
-color:#8993a5;
-min-height:45px
-}
-
-.social-tool button{
-width:100%;
-margin-top:12px;
-padding:10px;
-border:0;
-border-radius:9px;
-background:#1b2432;
-color:white
-}
-
-.api-notice{
-margin-top:20px;
-padding:15px;
-border-radius:12px;
-background:#151b27;
-border:1px solid #293344;
-color:#9ba5b7;
-font-size:13px;
-line-height:1.6
-}
-
-.api-notice strong{
-color:#f5f7fb
-}
-
-/* SECURITY */
 
 .security-grid{
 display:grid;
@@ -470,8 +371,7 @@ background:#080b12;
 border:1px solid #293344;
 color:white;
 padding:12px;
-border-radius:9px;
-outline:none
+border-radius:9px
 }
 
 .password-box button{
@@ -503,7 +403,30 @@ color:#929cad;
 margin-top:8px
 }
 
-/* FOOTER */
+.stat-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+margin-top:20px
+}
+
+.stat{
+background:#0d111a;
+border:1px solid #202938;
+border-radius:14px;
+padding:18px
+}
+
+.stat-label{
+color:#8993a5;
+font-size:12px;
+margin-bottom:8px
+}
+
+.stat-value{
+font-size:24px;
+font-weight:bold
+}
 
 .footer{
 margin-top:35px;
@@ -514,24 +437,18 @@ font-size:12px;
 text-align:center
 }
 
-/* MOBILE */
-
 @media(max-width:1000px){
 
 .grid{
 grid-template-columns:repeat(2,1fr)
 }
 
-.stat-grid{
-grid-template-columns:repeat(2,1fr)
-}
-
-.instagram-tools{
-grid-template-columns:repeat(2,1fr)
-}
-
 .security-grid{
 grid-template-columns:1fr
+}
+
+.stat-grid{
+grid-template-columns:repeat(2,1fr)
 }
 
 }
@@ -588,22 +505,6 @@ grid-template-columns:1fr
 grid-template-columns:1fr 1fr
 }
 
-.instagram-tools{
-grid-template-columns:1fr
-}
-
-.instagram-header{
-align-items:flex-start
-}
-
-.password-box{
-flex-direction:column
-}
-
-.password-box button{
-padding:11px
-}
-
 }
 </style>
 </head>
@@ -611,8 +512,6 @@ padding:11px
 <body>
 
 <div class="app">
-
-<!-- SIDEBAR -->
 
 <aside class="sidebar">
 
@@ -622,8 +521,7 @@ ROOT <span>HUB</span>
 
 <nav class="nav">
 
-<button class="active"
-onclick="page('home',this)">
+<button class="active" onclick="page('home',this)">
 🏠 Home
 </button>
 
@@ -648,8 +546,6 @@ onclick="page('home',this)">
 </aside>
 
 
-<!-- MAIN -->
-
 <main class="main">
 
 <header class="top">
@@ -658,9 +554,7 @@ onclick="page('home',this)">
 
 <h1>ROOT HUB</h1>
 
-<p>
-All-in-one personal web toolkit.
-</p>
+<p>All-in-one personal web toolkit.</p>
 
 </div>
 
@@ -670,8 +564,6 @@ All-in-one personal web toolkit.
 
 </header>
 
-
-<!-- SEARCH -->
 
 <div class="search">
 
@@ -685,63 +577,48 @@ oninput="searchTools()">
 
 <!-- HOME -->
 
-<section
-id="home"
-class="page active">
+<section id="home" class="page active">
 
 <h2 class="section-title">
 Tools
 </h2>
 
-<div
-class="grid"
-id="tools">
+<div class="grid" id="tools">
 
 
-<!-- INSTAGRAM -->
-
-<div class="card"
-data-name="instagram social">
+<div class="card" data-name="instagram social">
 
 <div class="icon">
 📸
 </div>
 
-<h3>
-Instagram
-</h3>
+<h3>Instagram</h3>
 
 <p>
-Instagram management dashboard.
+Instagram control features are being prepared.
 </p>
 
 <span class="status coming">
-API CONNECTION
+COMING SOON
 </span>
 
-<button
-onclick="page('social')">
-Manage
+<button onclick="page('social')">
+View
 </button>
 
 </div>
 
 
-<!-- WHATSAPP -->
-
-<div class="card"
-data-name="whatsapp social">
+<div class="card" data-name="whatsapp social">
 
 <div class="icon">
 💬
 </div>
 
-<h3>
-WhatsApp
-</h3>
+<h3>WhatsApp</h3>
 
 <p>
-Open a WhatsApp chat using a number.
+Open a WhatsApp chat using a number you provide.
 </p>
 
 <span class="status ready">
@@ -755,137 +632,108 @@ Open
 </div>
 
 
-<!-- NETWORK -->
-
-<div class="card"
-data-name="network internet">
+<div class="card" data-name="network internet">
 
 <div class="icon">
 🌐
 </div>
 
-<h3>
-Network Info
-</h3>
+<h3>Network Info</h3>
 
 <p>
-View browser network information.
+View network information available to your browser.
 </p>
 
 <span class="status ready">
 READY
 </span>
 
-<button
-onclick="page('network')">
+<button onclick="page('network')">
 Open
 </button>
 
 </div>
 
 
-<!-- LOCATION -->
-
-<div class="card"
-data-name="location gps">
+<div class="card" data-name="location gps">
 
 <div class="icon">
 📍
 </div>
 
-<h3>
-My Location
-</h3>
+<h3>My Location</h3>
 
 <p>
-Request your own GPS location.
+Request your own GPS location with browser permission.
 </p>
 
 <span class="status ready">
 READY
 </span>
 
-<button
-onclick="locationTool()">
+<button onclick="locationTool()">
 Open
 </button>
 
 </div>
 
 
-<!-- SECURITY -->
-
-<div class="card"
-data-name="password security hash uuid token">
+<div class="card" data-name="password security hash">
 
 <div class="icon">
 🔐
 </div>
 
-<h3>
-Security Center
-</h3>
+<h3>Security Center</h3>
 
 <p>
-Password, hash, UUID and secure token tools.
+Password, hash, UUID and security utilities.
 </p>
 
 <span class="status ready">
 READY
 </span>
 
-<button
-onclick="page('security')">
+<button onclick="page('security')">
 Open
 </button>
 
 </div>
 
 
-<!-- DEVICE -->
-
-<div class="card"
-data-name="device phone">
+<div class="card" data-name="device phone">
 
 <div class="icon">
 📱
 </div>
 
-<h3>
-Device Info
-</h3>
+<h3>Device Info</h3>
 
 <p>
-View basic device information.
+View basic browser and device information.
 </p>
 
 <span class="status ready">
 READY
 </span>
 
-<button
-onclick="page('device')">
+<button onclick="page('device')">
 Open
 </button>
 
 </div>
 
 
-<!-- QR -->
-
-<div class="card"
-data-name="qr utility">
+<div class="card" data-name="qr utility">
 
 <div class="icon">
 ▦
 </div>
 
-<h3>
-QR Generator
-</h3>
+<h3>QR Generator</h3>
 
 <p>
-Create a QR code from text or URL.
+Create a QR code from text or a URL.
 </p>
 
 <span class="status ready">
@@ -899,21 +747,16 @@ Open
 </div>
 
 
-<!-- AI -->
-
-<div class="card"
-data-name="ai artificial intelligence">
+<div class="card" data-name="ai artificial intelligence">
 
 <div class="icon">
 🤖
 </div>
 
-<h3>
-AI Tools
-</h3>
+<h3>AI Tools</h3>
 
 <p>
-AI utilities for a future ROOT HUB module.
+AI utilities are planned for a future ROOT HUB release.
 </p>
 
 <span class="status coming">
@@ -921,7 +764,7 @@ COMING SOON
 </span>
 
 <button onclick="aiTools()">
-Open
+View
 </button>
 
 </div>
@@ -938,300 +781,31 @@ ROOT HUB • Building Code. Creating Tomorrow.
 
 <!-- SOCIAL -->
 
-<section
-id="social"
-class="page">
+<section id="social" class="page">
 
 <h2 class="section-title">
 Social Tools
 </h2>
 
+<div class="panel coming-box">
 
-<div class="panel">
-
-<div class="instagram-header">
-
-<div class="instagram-profile">
-
-<div class="instagram-avatar">
+<div class="coming-icon">
 📸
 </div>
-
-<div>
 
 <h2>
 Instagram Control
 </h2>
 
-<div
-id="instagramStatus"
-class="instagram-status disconnected">
-
-● Not connected
-
-</div>
-
-</div>
-
-</div>
-
-
-<div>
-
-<button
-id="connectInstagramButton"
-class="action"
-onclick="connectInstagram()">
-
-Connect Instagram
-
-</button>
-
-<button
-id="disconnectInstagramButton"
-class="secondary"
-onclick="disconnectInstagram()"
-style="display:none">
-
-Disconnect
-
-</button>
-
-</div>
-
-</div>
-
-
-<div class="api-notice">
-
-<strong>
-🔐 Secure connection
-</strong>
-
-<br>
-
-ROOT HUB will use official Instagram/Meta
-authorization. Never enter an Instagram password
-directly into ROOT HUB.
-
-</div>
-
-
-<div class="stat-grid">
-
-<div class="stat">
-
-<div class="stat-label">
-FOLLOWERS
-</div>
-
-<div
-id="followersStat"
-class="stat-value">
-—
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-label">
-FOLLOWING
-</div>
-
-<div
-id="followingStat"
-class="stat-value">
-—
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-label">
-POSTS
-</div>
-
-<div
-id="postsStat"
-class="stat-value">
-—
-</div>
-
-</div>
-
-
-<div class="stat">
-
-<div class="stat-label">
-ENGAGEMENT
-</div>
-
-<div
-id="engagementStat"
-class="stat-value">
-—
-</div>
-
-</div>
-
-</div>
-
-
-<div class="instagram-tools">
-
-
-<div class="social-tool">
-
-<div class="icon">
-👤
-</div>
-
-<h3>
-Account
-</h3>
-
 <p>
-View connected account information.
+Real Instagram account connection, analytics,
+content management and other supported features
+will be added after the ROOT HUB core platform is
+completed.
 </p>
 
-<button onclick="instagramAccount()">
-Account Info
-</button>
-
-</div>
-
-
-<div class="social-tool">
-
-<div class="icon">
-📊
-</div>
-
-<h3>
-Insights
-</h3>
-
-<p>
-View available account insights.
-</p>
-
-<button onclick="instagramInsights()">
-View Insights
-</button>
-
-</div>
-
-
-<div class="social-tool">
-
-<div class="icon">
-📝
-</div>
-
-<h3>
-Posts
-</h3>
-
-<p>
-Manage supported Instagram content.
-</p>
-
-<button onclick="instagramPosts()">
-Manage Posts
-</button>
-
-</div>
-
-
-<div class="social-tool">
-
-<div class="icon">
-💬
-</div>
-
-<h3>
-Comments
-</h3>
-
-<p>
-Manage supported comments.
-</p>
-
-<button onclick="instagramComments()">
-Comments
-</button>
-
-</div>
-
-
-<div class="social-tool">
-
-<div class="icon">
-📈
-</div>
-
-<h3>
-Analytics
-</h3>
-
-<p>
-Analyze available performance data.
-</p>
-
-<button onclick="instagramAnalytics()">
-Analytics
-</button>
-
-</div>
-
-
-<div class="social-tool">
-
-<div class="icon">
-⚙️
-</div>
-
-<h3>
-Settings
-</h3>
-
-<p>
-Configure the Instagram integration.
-</p>
-
-<button onclick="instagramSettings()">
-Settings
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div class="panel">
-
-<h2>
-Instagram Integration
-</h2>
-
-<p>
-The dashboard is ready. Real Instagram control
-will be connected after Meta authorization and
-backend configuration.
-</p>
-
-<div
-id="instagramResult"
-class="result">
-
-Instagram is not connected.
-
+<div class="coming-badge">
+COMING SOON
 </div>
 
 </div>
@@ -1244,12 +818,12 @@ Instagram is not connected.
 </h2>
 
 <p>
-Open WhatsApp Web.
+Open WhatsApp Web or start a chat using a phone number.
 </p>
 
 <button
 class="action"
-onclick="window.open('https://web.whatsapp.com/','_blank')">
+onclick="whatsapp()">
 
 Open WhatsApp
 
@@ -1262,22 +836,18 @@ Open WhatsApp
 
 <!-- NETWORK -->
 
-<section
-id="network"
-class="page">
+<section id="network" class="page">
 
 <h2 class="section-title">
-Network Tools
+Network Center
 </h2>
 
 <div class="panel">
 
-<h2>
-🌐 Network Information
-</h2>
+<h2>🌐 Network Information</h2>
 
 <p>
-Information available to your browser.
+Information that your browser makes available to ROOT HUB.
 </p>
 
 <button
@@ -1288,12 +858,8 @@ Refresh
 
 </button>
 
-<div
-id="networkResult"
-class="result">
-
+<div id="networkResult" class="result">
 Press Refresh.
-
 </div>
 
 </div>
@@ -1301,21 +867,16 @@ Press Refresh.
 </section>
 
 
-<!-- SECURITY CENTER -->
+<!-- SECURITY -->
 
-<section
-id="security"
-class="page">
+<section id="security" class="page">
 
 <h2 class="section-title">
 Security Center
 </h2>
 
-
 <div class="security-grid">
 
-
-<!-- PASSWORD GENERATOR -->
 
 <div class="security-card">
 
@@ -1338,15 +899,13 @@ id="generatedPassword"
 readonly
 placeholder="Generate a password">
 
-<button
-onclick="copyPassword()">
+<button onclick="copyPassword()">
 Copy
 </button>
 
 </div>
 
-<div class="tool-row"
-style="margin-top:12px">
+<div class="tool-row">
 
 <button
 class="action"
@@ -1361,8 +920,6 @@ Generate
 </div>
 
 
-<!-- PASSWORD CHECKER -->
-
 <div class="security-card">
 
 <div class="icon">
@@ -1374,7 +931,7 @@ Password Strength Checker
 </h3>
 
 <p>
-Check the strength of a password locally.
+Check password strength locally.
 </p>
 
 <input
@@ -1403,8 +960,6 @@ Enter a password to check its strength.
 
 </div>
 
-
-<!-- HASH -->
 
 <div class="security-card">
 
@@ -1453,8 +1008,6 @@ Copy Hash
 </div>
 
 
-<!-- UUID -->
-
 <div class="security-card">
 
 <div class="icon">
@@ -1497,8 +1050,6 @@ Copy UUID
 
 </div>
 
-
-<!-- RANDOM TOKEN -->
 
 <div class="security-card">
 
@@ -1543,8 +1094,6 @@ Copy Token
 </div>
 
 
-<!-- SECURITY INFO -->
-
 <div class="security-card">
 
 <div class="icon">
@@ -1580,12 +1129,10 @@ ROOT HUB security tools operate locally in your browser.
 
 <!-- DEVICE -->
 
-<section
-id="device"
-class="page">
+<section id="device" class="page">
 
 <h2 class="section-title">
-Device Tools
+Device Center
 </h2>
 
 <div class="panel">
@@ -1595,7 +1142,7 @@ Device Tools
 </h2>
 
 <p>
-View information provided by your browser.
+View information made available by your browser.
 </p>
 
 <button
@@ -1626,9 +1173,7 @@ No information loaded.
 
 <script>
 
-/* =========================
-PAGE NAVIGATION
-========================= */
+/* PAGE NAVIGATION */
 
 function page(id,button){
 
@@ -1663,9 +1208,7 @@ behavior:'smooth'
 }
 
 
-/* =========================
-SEARCH
-========================= */
+/* SEARCH */
 
 function searchTools(){
 
@@ -1693,148 +1236,7 @@ name.includes(q)
 }
 
 
-/* =========================
-INSTAGRAM
-========================= */
-
-let instagramConnected=false;
-
-function connectInstagram(){
-
-alert(
-'Instagram connection is not activated yet.\\n\\n' +
-'ROOT HUB is ready for the official Meta/Instagram authorization step.'
-);
-
-}
-
-function disconnectInstagram(){
-
-instagramConnected=false;
-
-document
-.getElementById('instagramStatus')
-.textContent='● Not connected';
-
-document
-.getElementById('instagramStatus')
-.className=
-'instagram-status disconnected';
-
-document
-.getElementById('connectInstagramButton')
-.style.display='inline-block';
-
-document
-.getElementById('disconnectInstagramButton')
-.style.display='none';
-
-document
-.getElementById('followersStat')
-.textContent='—';
-
-document
-.getElementById('followingStat')
-.textContent='—';
-
-document
-.getElementById('postsStat')
-.textContent='—';
-
-document
-.getElementById('engagementStat')
-.textContent='—';
-
-document
-.getElementById('instagramResult')
-.textContent=
-'Instagram is not connected.';
-
-}
-
-function instagramAccount(){
-
-if(!instagramConnected){
-alert('Connect your Instagram account first.');
-return;
-}
-
-document
-.getElementById('instagramResult')
-.textContent=
-'Account information will appear after the official API connection is configured.';
-
-}
-
-function instagramInsights(){
-
-if(!instagramConnected){
-alert('Connect your Instagram account first.');
-return;
-}
-
-document
-.getElementById('instagramResult')
-.textContent=
-'Instagram Insights will appear after the official API connection is configured.';
-
-}
-
-function instagramPosts(){
-
-if(!instagramConnected){
-alert('Connect your Instagram account first.');
-return;
-}
-
-document
-.getElementById('instagramResult')
-.textContent=
-'Supported post management will appear after the official API connection is configured.';
-
-}
-
-function instagramComments(){
-
-if(!instagramConnected){
-alert('Connect your Instagram account first.');
-return;
-}
-
-document
-.getElementById('instagramResult')
-.textContent=
-'Supported comment management will appear after the official API connection is configured.';
-
-}
-
-function instagramAnalytics(){
-
-if(!instagramConnected){
-alert('Connect your Instagram account first.');
-return;
-}
-
-document
-.getElementById('instagramResult')
-.textContent=
-'Analytics will appear after the official API connection is configured.';
-
-}
-
-function instagramSettings(){
-
-document
-.getElementById('instagramResult')
-.textContent=
-'Instagram integration settings will be available here.';
-
-}
-
-
-/* =========================
-WHATSAPP
-========================= */
+/* WHATSAPP */
 
 function whatsapp(){
 
@@ -1843,7 +1245,9 @@ prompt(
 'Enter phone number with country code, without + or spaces:'
 );
 
-if(!number)return;
+if(!number){
+return;
+}
 
 if(!/^[0-9]{7,15}$/.test(number)){
 
@@ -1860,24 +1264,20 @@ window.open(
 }
 
 
-/* =========================
-LOCATION
-========================= */
+/* LOCATION */
 
 function locationTool(){
 
 if(!navigator.geolocation){
 
 alert(
-'Geolocation is not supported.'
+'Geolocation is not supported by this browser.'
 );
 
 return;
 }
 
-navigator
-.geolocation
-.getCurrentPosition(
+navigator.geolocation.getCurrentPosition(
 
 function(position){
 
@@ -1887,10 +1287,14 @@ position.coords.latitude;
 const lon=
 position.coords.longitude;
 
+const accuracy=
+position.coords.accuracy;
+
 alert(
-'Your location:\\n\\n' +
+'Your Location\\n\\n' +
 'Latitude: '+lat+
-'\\nLongitude: '+lon
+'\\nLongitude: '+lon+
+'\\nAccuracy: '+accuracy+' meters'
 );
 
 },
@@ -1908,9 +1312,7 @@ alert(
 }
 
 
-/* =========================
-NETWORK
-========================= */
+/* NETWORK */
 
 function networkInfo(){
 
@@ -1971,9 +1373,7 @@ document
 }
 
 
-/* =========================
-SECURE PASSWORD
-========================= */
+/* PASSWORD GENERATOR */
 
 function generatePassword(){
 
@@ -2048,9 +1448,7 @@ alert('Password copied.');
 }
 
 
-/* =========================
-PASSWORD STRENGTH
-========================= */
+/* PASSWORD STRENGTH */
 
 function checkPasswordStrength(){
 
@@ -2060,12 +1458,10 @@ document
 .value;
 
 const bar=
-document
-.getElementById('strengthBar');
+document.getElementById('strengthBar');
 
 const text=
-document
-.getElementById('strengthText');
+document.getElementById('strengthText');
 
 if(!value){
 
@@ -2080,23 +1476,12 @@ return;
 
 let score=0;
 
-if(value.length>=8)
-score++;
-
-if(value.length>=12)
-score++;
-
-if(/[A-Z]/.test(value))
-score++;
-
-if(/[a-z]/.test(value))
-score++;
-
-if(/[0-9]/.test(value))
-score++;
-
-if(/[^A-Za-z0-9]/.test(value))
-score++;
+if(value.length>=8) score++;
+if(value.length>=12) score++;
+if(/[A-Z]/.test(value)) score++;
+if(/[a-z]/.test(value)) score++;
+if(/[0-9]/.test(value)) score++;
+if(/[^A-Za-z0-9]/.test(value)) score++;
 
 if(score<=2){
 
@@ -2126,9 +1511,7 @@ text.textContent=
 }
 
 
-/* =========================
-SHA-256
-========================= */
+/* SHA-256 */
 
 async function generateHash(){
 
@@ -2163,9 +1546,11 @@ new Uint8Array(hashBuffer)
 const hash=
 hashArray
 .map(function(byte){
+
 return byte
 .toString(16)
 .padStart(2,'0');
+
 })
 .join('');
 
@@ -2176,9 +1561,7 @@ document
 }
 
 
-/* =========================
-UUID
-========================= */
+/* UUID */
 
 function generateUUID(){
 
@@ -2209,9 +1592,11 @@ uuid=
 Array
 .from(bytes)
 .map(function(b){
+
 return b
 .toString(16)
 .padStart(2,'0');
+
 })
 .join('');
 
@@ -2231,9 +1616,7 @@ document
 }
 
 
-/* =========================
-SECURE RANDOM TOKEN
-========================= */
+/* SECURE TOKEN */
 
 function generateToken(){
 
@@ -2246,9 +1629,11 @@ const token=
 Array
 .from(bytes)
 .map(function(byte){
+
 return byte
 .toString(16)
 .padStart(2,'0');
+
 })
 .join('');
 
@@ -2259,9 +1644,7 @@ document
 }
 
 
-/* =========================
-COPY
-========================= */
+/* COPY */
 
 function copyText(id){
 
@@ -2312,9 +1695,7 @@ alert('Copied.');
 }
 
 
-/* =========================
-DEVICE
-========================= */
+/* DEVICE */
 
 function deviceInfo(){
 
@@ -2351,7 +1732,26 @@ text+=
 'Timezone:\\n'+
 Intl.DateTimeFormat()
 .resolvedOptions()
-.timeZone;
+.timeZone+
+'\\n\\n';
+
+if(navigator.hardwareConcurrency){
+
+text+=
+'CPU Cores Available: '+
+navigator.hardwareConcurrency+
+'\\n\\n';
+
+}
+
+if(navigator.deviceMemory){
+
+text+=
+'Approx. Device Memory: '+
+navigator.deviceMemory+
+' GB';
+
+}
 
 document
 .getElementById('deviceResult')
@@ -2360,9 +1760,7 @@ document
 }
 
 
-/* =========================
-QR
-========================= */
+/* QR */
 
 function qr(){
 
@@ -2371,7 +1769,9 @@ prompt(
 'Enter text or URL for the QR code:'
 );
 
-if(!value)return;
+if(!value){
+return;
+}
 
 const url=
 'https://api.qrserver.com/v1/create-qr-code/?size=250x250&data='+
@@ -2401,14 +1801,12 @@ win.document.write(
 }
 
 
-/* =========================
-AI
-========================= */
+/* AI */
 
 function aiTools(){
 
 alert(
-'AI Tools are planned for a future ROOT HUB version.'
+'AI Tools are coming soon in a future ROOT HUB release.'
 );
 
 }
